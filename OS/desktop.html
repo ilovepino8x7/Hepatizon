@@ -13,6 +13,48 @@
         <a class="menu-button" id="pow">Power</a>
     </div>
 
-   
-
+    <div id="window" class="window">
+        <div class="bar"><div class="close"></div></div>
+        <iframe class="cont" width="1280" height="720" src="Apps/about.html" title="About"></iframe>
+    </div>
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    var e = document.getElementById("window");
+    var interactive = document.querySelector(".cont");
+    var grabBar = document.querySelector(".bar");
+    
+    
+    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    drag(e);
+    function drag(ez) {
+        ez.onmousedown = dragClick;
+    }
+    function dragClick(el) {
+        el = el || window.event;
+        el.preventDefault();
+        pos3 = el.clientX;
+        pos4 = el.clientY;
+        interactive.style.pointerEvents = "none";
+        grabBar.style.cursor = "grabbing";
+        document.onmouseup = closeDrag;
+        document.onmousemove = drage;
+    }
+    function drage(ex) {
+        ex = ex || window.event;
+        ex.preventDefault();
+        pos1 = pos3 - ex.clientX;
+        pos2 = pos4 - ex.clientY;
+        pos3 = ex.clientX;
+        pos4 = ex.clientY;
+        e.style.top = (e.offsetTop - pos2) + "px";
+        e.style.left = (e.offsetLeft - pos1) + "px";
+    }
+    function closeDrag() {
+        interactive.style.pointerEvents = "auto";
+        grabBar.style.cursor = "grab";
+        document.onmouseup = null;
+        document.onmousemove = null;
+    }
+});
+</script>

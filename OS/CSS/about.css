@@ -1,3 +1,6 @@
+* {
+    margin: 0;
+}
 .bod {
     background-color:rgba(239, 254, 255, 0.657);
     width: 30%;

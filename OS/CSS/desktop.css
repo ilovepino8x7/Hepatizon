@@ -18,3 +18,29 @@ body {
     right: 3vw;
     margin: 0;
 }
+iframe {
+    border: none;
+}
+.bar {
+    cursor:grab;
+    padding:1%;
+    background-color:rgba(204, 204, 204, 0.553);
+    margin: 0 auto;
+    width: 350px;
+}
+.window {
+    position:absolute;
+}
+.close {
+    margin: 0;
+    padding: 5px;
+    width: 5px;
+    height: 5px;
+    position:absolute;
+    right: 470px;
+    top: 4px;
+    background-color:rgb(203, 40, 40);
+    border: 2px black solid;
+    border-radius: 100%;
+    cursor:pointer;
+}
