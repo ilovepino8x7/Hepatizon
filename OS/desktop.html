@@ -9,24 +9,24 @@
 </head>
 <body>
     <div id="toolbar">
-        <a class="menu-button">About</a>
-        <a class="menu-button" id="pow">Power</a>
+        <div id="abt" class="menu-button">About</div>
+        <div class="menu-button" id="pow">Power</div>
     </div>
 
-    <div id="window" class="window">
-        <div class="bar"><div class="close"></div></div>
-        <iframe class="cont" width="1280" height="720" src="Apps/about.html" title="About"></iframe>
-    </div>
 </body>
 <script>
+
     document.addEventListener("DOMContentLoaded", function () {
-    var e = document.getElementById("window");
-    var interactive = document.querySelector(".cont");
-    var grabBar = document.querySelector(".bar");
-    
-    
+        const abtton = document.getElementById('abt');
+        abtton.addEventListener('click', () => open('1280','720','Apps/about.html','about'));
+
+        function dragibus(w,i,g) {
+        /* dragging (w3Schools and Gemini) */
+    var e = w;
+    var interactive = i;
+    var grabBar = g;
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    drag(e);
+    drag(g);
     function drag(ez) {
         ez.onmousedown = dragClick;
     }
@@ -35,10 +35,14 @@
         el.preventDefault();
         pos3 = el.clientX;
         pos4 = el.clientY;
-        interactive.style.pointerEvents = "none";
+        var interactives = document.querySelectorAll(".cont");
+        interactives.forEach((x) => {
+            x.style.pointerEvents = "none";
+        });
         grabBar.style.cursor = "grabbing";
-        document.onmouseup = closeDrag;
-        document.onmousemove = drage;
+        e.style.zIndex = "9998";
+        document.addEventListener('mouseup', closeDrag);
+        document.addEventListener('mousemove', drage);
     }
     function drage(ex) {
         ex = ex || window.event;
@@ -51,10 +55,54 @@
         e.style.left = (e.offsetLeft - pos1) + "px";
     }
     function closeDrag() {
+        var interactives = document.querySelectorAll(".cont");
+        interactives.forEach((x) => {
+            x.style.pointerEvents = "auto";
+        });
+
         interactive.style.pointerEvents = "auto";
         grabBar.style.cursor = "grab";
-        document.onmouseup = null;
-        document.onmousemove = null;
+        document.removeEventListener('mouseup', closeDrag);
+        document.removeEventListener('mousemove', drage);
     }
+    document.querySelectorAll('*').forEach(element => {
+        element.setAttribute('draggable', 'false');
+    });
+    document.addEventListener('dragstart',(e)=> {
+        e.preventDefault();
+    })
+}
+    /* opening and closing windows */
+
+    function open(wid,hi,app,nom) {
+        const wind = document.createElement('div');
+        wind.setAttribute("class","window");
+
+        const bah = document.createElement('div');
+        bah.setAttribute("class","bar");
+
+        const shut = document.createElement('div');
+        shut.setAttribute("class","close");
+        
+        const frame = document.createElement('iframe');
+        frame.setAttribute("class","cont");
+        frame.setAttribute("width", wid );
+        frame.setAttribute("height", hi );
+        frame.setAttribute("src", app );
+        frame.setAttribute("title", nom );
+
+        wind.appendChild(bah);
+        bah.appendChild(shut);
+        wind.appendChild(frame);
+
+        shut.addEventListener("click", () => quit(wind));
+        document.body.appendChild(wind);
+        dragibus(wind,frame,bah);
+    }
+
+    function quit(w) {
+        w.remove();
+    }
+
 });
 </script>

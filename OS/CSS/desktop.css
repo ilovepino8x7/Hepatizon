@@ -1,7 +1,19 @@
+* {
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+    -webkit-user-drag: none;
+    user-drag: none;
+}
+.menu-button {
+    display: inline;   
+}
 body {
     background-image: url(../images/bg.jpg);
     background-size: cover;
     margin: 0;
+    min-height: 100vh;
+    min-width: 100vw;
 }
 #toolbar {
     background-color:rgba(0, 0, 0, 0.383);
@@ -12,6 +24,7 @@ body {
     display:block;
     padding: 0.4vw;
     padding-left: 3vw;
+    z-index: 9999;
 }
 #pow {
     position: absolute;
@@ -24,12 +37,12 @@ iframe {
 .bar {
     cursor:grab;
     padding:1%;
-    background-color:rgba(204, 204, 204, 0.553);
-    margin: 0 auto;
-    width: 350px;
+    background-color:rgba(122, 116, 116, 0.553);
+    width: 358px;
 }
 .window {
     position:absolute;
+    top: 50%;
 }
 .close {
     margin: 0;
@@ -37,7 +50,7 @@ iframe {
     width: 5px;
     height: 5px;
     position:absolute;
-    right: 470px;
+    right: 915px;
     top: 4px;
     background-color:rgb(203, 40, 40);
     border: 2px black solid;

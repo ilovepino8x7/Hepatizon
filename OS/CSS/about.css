@@ -1,10 +1,21 @@
 * {
+    margin: 0 auto;
+    -webkit-user-drag: none;
+    user-drag: none;
+}
+body {
+    width: 384px;
+    height: 504px;
+}
+html {
+    width: 384px;
+    height: 504px;
     margin: 0;
 }
 .bod {
-    background-color:rgba(239, 254, 255, 0.657);
-    width: 30%;
-    height: 70%;
+    background-color:rgba(239, 254, 255, 0.98);
+    width: 384px;
+    height: 504px;
     display: block;
     border-radius: 25px;
     text-align: center;
@@ -13,6 +24,9 @@
     font-weight:200;
     padding-top: 2%;
     padding-bottom: 2%;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    pointer-events: none;
 }
 h2 {
     font-weight: 300;
@@ -23,6 +37,7 @@ img {
     aspect-ratio: 1/1;
     width: 50%;
     object-fit: cover;
+    margin-bottom: 10%;
 }
 p {
     margin: 7%;
