@@ -4,9 +4,21 @@
     overflow: hidden;
     -webkit-user-drag: none;
     user-drag: none;
+    font-family: 'Google Sans Flex';
 }
 .menu-button {
-    display: inline;   
+    display: inline;
+    padding: 0 20px;  
+    cursor:pointer; 
+    transition: 0.2s;
+    border-radius: 10px;
+}
+.menu-button:hover {
+    background-color: rgba(255, 255, 255, 0.351);   
+    font-weight:500;
+}
+.menu-button:active {
+    background-color: rgba(255, 255, 255, 0.678);   
 }
 body {
     background-image: url(../images/bg.jpg);
@@ -18,7 +30,6 @@ body {
 #toolbar {
     background-color:rgba(0, 0, 0, 0.383);
     color: white;
-    font-family: 'Google Sans Flex';
     margin: 0;
     width: 96.55vw;
     display:block;
@@ -33,27 +44,38 @@ body {
 }
 iframe {
     border: none;
+    display: block;
 }
 .bar {
     cursor:grab;
-    padding:1%;
+    padding:13px;
     background-color:rgba(122, 116, 116, 0.553);
     width: 358px;
 }
 .window {
     position:absolute;
-    top: 50%;
+    box-shadow: 5px 5px 20px rgb(0, 0, 0);
+    border-radius: 25px;
+    left: 40%;
 }
 .close {
-    margin: 0;
+    margin: 0 auto;
+    margin-right: 10%;
     padding: 5px;
     width: 5px;
     height: 5px;
-    position:absolute;
-    right: 915px;
-    top: 4px;
-    background-color:rgb(203, 40, 40);
+    background-color:rgb(159, 33, 33);
     border: 2px black solid;
     border-radius: 100%;
     cursor:pointer;
+    transition:0.2s; 
+    text-align: left;
+    color:rgb(255, 255, 255);
+
+}
+.close:hover {
+    background-color:rgb(104, 20, 20);
+}
+.close:active {
+    background-color:rgb(255, 77, 77);
 }
