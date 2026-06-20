@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Desktop</title>
+        <title>Bootloader</title>
         <link rel="icon" type="image/x-icon" href="images/icon.png">
         <link rel="stylesheet" href="CSS/boot.css">
     </head>
     <body>
-        
+        <div id="cover"></div>
+        <div id="os">
+            <div id="inner">
+            <img draggable=false src="images/icon.png">
+        </div>
+        </div>
+    
+        <p>Hepatizon OS</p>
+    
     </body>
 </html>
+<script>
+    
+    const but = document.getElementById("os");
+    but.addEventListener("click",next);
+    
+    window.addEventListener("keydown",next);
+
+    function next() {
+        document.getElementById("cover").style.opacity = "1";
+        setTimeout(function(){
+            window.open("desktop.html");
+            window.location.assign("about:blank");
+        }, 300);
+        
+    }
+
+</script>

@@ -80,7 +80,7 @@ iframe {
     background-color:rgb(255, 77, 77);
 }
 #kill {
-    background-color: rgba(173, 173, 173, 0.557);
+    background-color: rgba(173, 173, 173, 0.804);
     width: 25%;
     height: 10%;
     display: none;
@@ -88,12 +88,13 @@ iframe {
     gap: 10%;
     position:absolute;
     top: 40%;
-    right: 40%;
+    right: 37%;
     text-align: center;
     padding: 2%;
     border-radius: 20px;
     border: 2px solid grey;
     box-shadow: 5px 5px 5px rgb(0, 0, 0);
+    z-index: 999999;
 }
 #kill img {
     text-align: left;
