@@ -8,15 +8,36 @@
     <link rel="stylesheet" href="CSS/desktop.css">
 </head>
 <body>
+    <div id="off"></div>
     <div id="toolbar">
         <div id="abt" class="menu-button">About</div>
         <div class="menu-button" id="pow">Power</div>
+    </div>
+
+    <div id="kill">
+        <img src="images/power.png"> <p id="time">Shutting Down in 3 Seconds...</p>
     </div>
 
 </body>
 <script>
 
     document.addEventListener("DOMContentLoaded", function () {
+
+        document.getElementById('pow').addEventListener("click", () => {
+            document.getElementById("kill").style.display = "flex";
+            setTimeout(function(){
+                document.getElementById("time").textContent = "Shutting Down in 2 Seconds...";
+                document.getElementById("off").style.opacity = "1";
+            }, 1000);
+            setTimeout(function(){
+                document.getElementById("time").textContent = "Shutting Down in 1 Seconds...";
+                document.getElementById("off").style.pointerEvents = "all";
+            }, 2000);
+            setTimeout(function(){
+                window.close();
+            }, 3500);
+        });
+
         const abtton = document.getElementById('abt');
         abtton.addEventListener('click', () => open('384','504','Apps/about.html','about'));
 

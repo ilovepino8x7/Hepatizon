@@ -79,3 +79,48 @@ iframe {
 .close:active {
     background-color:rgb(255, 77, 77);
 }
+#kill {
+    background-color: rgba(173, 173, 173, 0.557);
+    width: 25%;
+    height: 10%;
+    display: none;
+    align-items: center;
+    gap: 10%;
+    position:absolute;
+    top: 40%;
+    right: 40%;
+    text-align: center;
+    padding: 2%;
+    border-radius: 20px;
+    border: 2px solid grey;
+    box-shadow: 5px 5px 5px rgb(0, 0, 0);
+}
+#kill img {
+    text-align: left;
+    border: 2px rgb(54, 54, 54) solid;
+    border-radius: 50%;
+    width: 90px;
+    display: inline;
+    margin-left: -1%;
+}
+#kill p {
+    display: inline;
+    margin: 2%;
+    text-align: justify;
+    font-size:large;
+}
+#off {
+    width:100%;
+    height:100%;
+    background-color: rgb(18, 18, 20);
+    pointer-events: none;
+    opacity: 0;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: opacity 2s ease-in-out;
+    z-index: 9999999;
+    pointer-events: none;
+}
+
