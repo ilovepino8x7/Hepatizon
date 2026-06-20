@@ -13,25 +13,24 @@ img {
     aspect-ratio: 1/1;
     width: 120px;
     object-fit: cover;
-    position:absolute;
-    top: 15px;
-    right: 15px;
+    display: block;
+    margin: auto;
+    margin-top: 8%;
 }
 #os {
     background-image: url(../images/greybg.png);
     background-size: 2px 2px;
     width: 151px;
     height: 151px;
-    position:absolute;
-    top: 35vh;
-    left: 46vw;
     border-radius: 5px;
     border-left: 2px black solid;
     border-top: 2px black solid;
     border-bottom: 4px black solid;
     border-right: 4px black solid;
     box-shadow: 15px 15px 30px rgb(0, 0, 0);
-    
+    margin: 0 auto;
+    margin-top: 20%;
+    margin-bottom: 0%;
 }
 #inner {
     border-left: 1px rgb(73, 73, 73) solid;
@@ -43,12 +42,15 @@ img {
     border-radius: 5px;
 }
 p {
-    position:absolute;
-    top: 50vh;
-    left: 47.2vw;
+    display: block;
     font-family: uni;
     background-color: rgb(207, 204, 204);
     padding: 3px;
+    padding-left: 3px;
+    width: 10%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 1%;
 }
 #cover {
     position: absolute;
