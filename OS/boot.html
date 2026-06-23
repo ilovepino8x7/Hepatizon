@@ -5,7 +5,7 @@
         <link rel="icon" type="image/x-icon" href="images/icon.png">
         <link rel="stylesheet" href="CSS/boot.css">
     </head>
-    <body>
+    <body id="bod">
         <!-- verbose messages -->
 
         <!-- Round One -->
@@ -14,11 +14,11 @@
         <p class="verb first">/OS Mounted</p>
         <p class="verb first">Files Located</p>
         <p class="verb first">Initialising Hepatizon...</p>
-        <p class="verb first blinky" style="color:rgb(82, 235, 235);">Press Any Key to Continue</p>
+        <p class="verb first blinky" style="color:rgb(82, 235, 235);">Press `Return` / `Enter` to Continue</p>
 
         <!-- Round Two -->
         <p class="verb second" style="color:rgb(82, 235, 235);">Welcome to Hepatizon!</p>
-        <p class="verb second"style="color:rgb(82, 235, 235);">These verbose messages are just for show while the page loads.</p>
+        <p class="verb second"style="color:rgb(82, 235, 235); margin-bottom:30px;">These verbose messages are just for show while the page loads.</p>
         <p class="verb"></p>
         <p class="verb"></p>
         <p class="verb second">[<span class="oki"> OK </span>] Core Kernal Engagement Commencing...</p>
@@ -36,22 +36,61 @@
         <p class="verb second">[<span class="oki"> OK </span>] No updates required</p>
         <p class="verb second">[<span class="oki"> OK </span>] Finding System Information...</p>
         <p class="verb second">[<span class="war"> WARN </span>] Slow Response...</p>
-        <p  class="verb second blinky" id="skibidi">[<span class="oki"> OK </span>] Located System Information!</p>
+        <p class="verb second">[<span class="fat"> FATAL </span>] Enrichment Error!</p>
+        <p class="verb second">[<span class="oki"> OK </span>] Sandbox Query Success</p>
+        <p class="verb second">[<span class="oki"> OK </span>] Testing for Pathogens...</p>
+        <p class="verb second">[<span class="oki"> OK </span>] System Clean</p>
+        <p class="verb second">[<span class="war"> WARN </span>] EMP Interference Detected</p>
+        <p class="verb second">[<span class="oki"> OK </span>] Blocking Signal...</p>
+        <p class="verb second">[<span class="oki"> OK </span>] Signal Blocked!</p>
+        <p class="verb second">[<span class="oki"> OK </span>] Peak Efficiency Achieved</p>
+        <p class="verb second">[<span class="war"> WARN </span>] Geiger Spike Detected</p>
+        <p class="verb second">[<span class="war"> WARN </span>] Power Usage Critical</p>
+        <p class="verb second">[<span class="oki"> OK </span>] Enabling SMR...</p>
+        <p class="verb second">[<span class="oki"> OK </span>] SMR Enabled</p>
+        <p class="verb second">[<span class="oki"> OK </span>] Starting Window Manager</p>
+        <p class="verb second">[<span class="oki"> OK </span>] Enabling Input Devices</p>
+        <p class="verb second">[<span class="war"> WARN </span>] Web-Cam Unavailable</p>
+        <p class="verb second">[<span class="oki"> OK </span>] Locating Accessibility Settings...</p>
+        <p class="verb second">[<span class="oki"> OK </span>] No Accessibility Settings Located</p>
+        <p class="verb second">[<span class="oki"> OK </span>] Activating User Theme</p>
+        <p class="verb second">[<span class="oki"> OK </span>] Dark Mode Enabled</p>
+        <p class="verb second">[<span class="oki"> OK </span>] Loading Apps into Memory</p>
+        <p class="verb second">[<span class="fat"> FATAL </span>] Memory Overload</p>
+        <p class="verb second">[<span class="war"> WARN </span>] Entering Swap Space</p>
+        <p class="verb second">[<span class="oki"> OK </span>] Apps Enabled Successfully</p>
+        <p class="verb second">[<span class="oki"> OK </span>] Checking Disk Health...</p>
+        <p class="verb second">[<span class="war"> WARN </span>] Unable to Locate Recovery Partition. Please Contact a Service Store</p>
+        <p class="verb second">[<span class="oki"> OK </span>] Enabling `Audio & Sound` Subsystem...</p>
+        <p class="verb second">[<span class="oki"> OK </span>] Speakers Located. Using Built-In Device Internal Speakers</p>
+        <p class="verb second">[<span class="oki"> OK </span>] v86 Subsystem Activated</p>
+        <p class="verb second">[<span class="oki"> OK </span>] Proxy Enabled</p>
+        <p class="verb second">[<span class="oki"> OK </span>] VPN Selected, Loading Now</p>
+        <p class="verb second">[<span class="fat"> FATAL </span>] No Virtual Private Networks Available</p>
+        <p class="verb second">[<span class="fat"> FATAL </span>] Proxy Server Error: 500</p>
+        <p class="verb second">[<span class="war"> WARN </span>] Usage Data is Not Hidden</p>
+        <p class="verb second">[<span class="oki"> OK </span>] Loading Images...</p>
+        <p class="verb second">[<span class="oki"> OK </span>] Images Loaded into Memory</p>
+        <p class="verb second">[<span class="oki"> OK </span>] Running Login Manager...</p>
+        <p class="verb second">[<span class="fat"> FATAL </span>] No Credentials Located</p>
+        <p class="verb second">[<span class="war"> WARN </span>] Using Default Credentials Instead</p>
+        <p class="verb second">[<span class="oki"> OK </span>] Finding System Information...</p>
+        <p  class="verb second blinky" id="finn">[<span class="oki"> OK </span>] Located System Information!</p>
 
         <!-- Round Three (data) - add warn or fatal if it's Unknown or OK -->
-        <p id="cor"class="verb third">Cores: </p>
-        <p id="mem"class="verb third">GB of RAM: </p>
-        <p id="lan"class="verb third">Language: </p>
-        <p id="con"class="verb third">Internet Connected: </p>
-        <p id="tz"class="verb third">Time Zone: </p>
-        <p id="ispeed"class="verb third">Internet Speed: </p>
-        <p id="charg"class="verb third">Battery Percentage: </p>
-        <p id="plugged-in"class="verb third">Charging: </p>
-        <p id="sys"class="verb third">Host System: </p>
-        <p id="ips"class="verb third">IP Address: </p>
-        <p id="town"class="verb third">City: </p>
-        <p id="isp"class="verb third">Internet Service Provider: </p>
-        <p class="verb third blinky" style="color:rgb(82, 235, 235);">Press Any Key to Continue</p>
+        <p id="cor"class="verb third">[<span class="oki"> OK </span>] Cores: </p>
+        <p id="mem"class="verb third">[<span class="oki"> OK </span>]GB of RAM: </p>
+        <p id="lan"class="verb third">[<span class="oki"> OK </span>]Language: </p>
+        <p id="con"class="verb third">[<span class="oki"> OK </span>]Internet Connected: </p>
+        <p id="tz"class="verb third">[<span class="oki"> OK </span>]Time Zone: </p>
+        <p id="ispeed"class="verb third">[<span class="oki"> OK </span>]Internet Speed: </p>
+        <p id="charg"class="verb third">[<span class="oki"> OK </span>]Battery Percentage: </p>
+        <p id="plugged-in"class="verb third">[<span class="oki"> OK </span>]Charging: </p>
+        <p id="sys"class="verb third">[<span class="oki"> OK </span>]Host System: </p>
+        <p id="ips"class="verb third">[<span class="oki"> OK </span>]IP Address: </p>
+        <p id="town"class="verb third">[<span class="oki"> OK </span>]City: </p>
+        <p id="isp"class="verb third">[<span class="oki"> OK </span>]Internet Service Provider: </p>
+        <p class="verb third blinky" style="color:rgb(82, 235, 235);">Press `Return` / `Enter` to Continue</p>
         <div id="cover"></div>
 <div id="cont">
         
@@ -70,6 +109,30 @@
     </body>
 </html>
 <script defer>
+
+   
+    function noScroll(e) {
+        e.preventDefault();
+    }
+window.addEventListener("wheel", noScroll, {passive:false});
+document.documentElement.style.overflow = "hidden"; 
+document.body.style.overflow = "hidden";
+   
+function noArrow(e) {
+        const scrollers = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"," "];
+        if (scrollers.includes(e.key)) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            if (document.activeElement && document.activeElement !== document.body) {
+            document.activeElement.blur();
+        }
+        }
+    }
+    window.addEventListener("keydown", noArrow, { capture: true,passive: false });
+    window.addEventListener("keyup", noArrow, { capture: true,passive: false });
+
+
     const wait = (ms) => new Promise(res => setTimeout(res,ms));
     
     /*gemini did this */
@@ -90,8 +153,25 @@ async function ip_data(a) {
     const resp = await fetch(`https://no-cors.teddybhunt.workers.dev/?url=${encodeURIComponent('https://ip.hackclub.com/ip/' + a)}`)
     return await resp.json();              
 }   
+let finalSpeed = 0;
+findSpeed();
+async function findSpeed() {
+    const targetImage = "https://upload.wikimedia.org/wikipedia/commons/7/73/SampleJPGImage_5mb.jpg";
+    const size = 5000000;
+    const url = `https://no-cors.teddybhunt.workers.dev/?url=${encodeURIComponent(targetImage)}`;
+    const im = new Image();
+    const sT = performance.now();
+    im.src = `${url}&cb=${sT}`;
+    im.onload = function() {
+        const eT = performance.now();
+        const dur = (eT - sT) / 1000;
+        const bits = size * 8;
+        const speedBits = bits / dur;
+        const speedMB = speedBits / 1000000;
+        finalSpeed = speedMB;
+    }
 
-
+}
 
 
 function getOS() {
@@ -105,13 +185,14 @@ function getOS() {
         return "Unknown";
     }
 
-    async function assign() {
+async function assign() {
+
     const cp = navigator.hardwareConcurrency ?? "Unknown";
     const ram = navigator.deviceMemory ?? "Unknown";
     const lang = navigator.language ?? "Unknown";
-    const inter = navigator.online ?? "False";
+    const inter = navigator.onLine ?? "false";
     const time = Intl.DateTimeFormat().resolvedOptions().timeZone ?? "Unknown";
-    const wSpeed = navigator.connection ? navigator.connection.downlink : "Unknown";
+    const wSpeed = finalSpeed ?? "Unknown";
     const bat = navigator.getBattery ?? "Unknown";
     const bpc = bat.level ?? "Unknown";
     const charge = bat.charging ?? "Unknown";
@@ -121,19 +202,90 @@ function getOS() {
     const city = ipData.city_name ?? "Unknown";
     const prov = ipData.isp_name ?? "Unknown";
 
-    document.getElementById("cor").textContent = "Cores: " + cp;
-    document.getElementById("mem").textContent = "GB of RAM: " + ram;
-    document.getElementById("lan").textContent = "Language: " + lang;
-    document.getElementById("con").textContent = "Internet Connected: " + inter;
-    document.getElementById("tz").textContent = "Time Zone: " + time;
-    document.getElementById("ispeed").textContent = "Internet Speed (Mb / s): " + wSpeed;
-    document.getElementById("charg").textContent = "Battery Percentage: " + bpc;
-    document.getElementById("plugged-in").textContent = "Charging: " + charge;
-    document.getElementById("sys").textContent = "Host System: " + os;
-    document.getElementById("ips").textContent = "IP Address: " + i;
-    document.getElementById("town").textContent = "City: " + city;
-    document.getElementById("isp").textContent = "Internet Service Provider: " + prov;
+    if (cp === "Unknown") {
+        document.getElementById("cor").innerHTML = '[<span class="war"> WARN </span>] Cores: ' + cp;
     }
+    else {
+        document.getElementById("cor").innerHTML = '[<span class="oki"> OK </span>] Cores: ' + cp;
+    }
+
+    if (ram === "Unknown") {
+        document.getElementById("mem").innerHTML = '[<span class="war"> WARN </span>] GB of RAM: ' + ram;
+    }
+    else {
+        document.getElementById("mem").innerHTML = '[<span class="oki"> OK </span>] GB of RAM: ' + ram;
+    }
+
+    if (lang === "Unknown") {
+        document.getElementById("lan").innerHTML = '[<span class="war"> WARN </span>] Language: ' + lang;
+    }
+    else {
+        document.getElementById("lan").innerHTML = '[<span class="oki"> OK </span>] Language: ' + lang;
+    }
+
+    if (inter === "Unknown") {
+        document.getElementById("con").innerHTML = '[<span class="war"> WARN </span>] Internet Connected: ' + inter;
+    }
+    else {
+        document.getElementById("con").innerHTML = '[<span class="oki"> OK </span>] Internet Connected: ' + inter;
+    }
+
+    if (time === "Unknown") {
+        document.getElementById("tz").innerHTML = '[<span class="war"> WARN </span>] Time Zone: ' + time;
+    }
+    else {
+        document.getElementById("tz").innerHTML = '[<span class="oki"> OK </span>] Time Zone: ' + time;
+    }
+
+    if (wSpeed === "Unknown") {
+        document.getElementById("ispeed").innerHTML = '[<span class="war"> WARN </span>] Internet Speed (Mbps): ' + wSpeed;    
+    }
+    else {
+        document.getElementById("ispeed").innerHTML = '[<span class="oki"> OK </span>] Internet Speed (Mbps): ' + wSpeed;
+    }
+
+    if (bpc === "Unknown") {
+        document.getElementById("charg").innerHTML = '[<span class="war"> WARN </span>] Battery Percentage: ' + bpc;    
+    }
+    else {
+        document.getElementById("charg").innerHTML = '[<span class="oki"> OK </span>] Battery Percentage: ' + bpc;    
+    }
+
+    if (charge === "Unknown") {
+        document.getElementById("plugged-in").innerHTML = '[<span class="war"> WARN </span>] Charging: ' + charge;    
+    }
+    else {
+        document.getElementById("plugged-in").innerHTML = '[<span class="oki"> OK </span>] Charging: ' + charge;    
+    }
+
+    if (os === "Unknown") {
+        document.getElementById("sys").innerHTML = '[<span class="war"> WARN </span>] Host System: ' + os;    
+    }
+    else {
+        document.getElementById("sys").innerHTML = '[<span class="oki"> OK </span>] Host System: ' + os;    
+    }
+
+    if (i === "Unknown") {
+        document.getElementById("ips").innerHTML = '[<span class="war"> WARN </span>] IP Address: ' + i;    
+    }
+    else {
+        document.getElementById("ips").innerHTML = '[<span class="oki"> OK </span>] IP Address: ' + i;    
+    }
+
+    if (city === "Unknown") {
+        document.getElementById("town").innerHTML = '[<span class="war"> WARN </span>] Estimated Location: ' + city;    
+    }
+    else {
+        document.getElementById("town").innerHTML = '[<span class="oki"> OK </span>] Estimated Location: ' + city;    
+    }
+
+    if (prov === "Unknown") {
+        document.getElementById("isp").innerHTML = '[<span class="war"> WARN </span>] Internet Service Provider: ' + prov;    
+    }
+    else {
+        document.getElementById("isp").innerHTML = '[<span class="oki"> OK </span>] Internet Service Provider: ' + prov;    
+    }
+}
   
     
     
@@ -152,6 +304,8 @@ function getOS() {
         document.documentElement.requestFullscreen();
         document.getElementById("cover").style.opacity = "1";
         document.getElementById("cont").remove();
+        document.getElementById("bod").style.backgroundColor = "black";
+        document.getElementById("bod").style.backgroundImage = "none";
         setTimeout(function(){
             window.removeEventListener("keydown",next);
             startVerbose();
@@ -175,7 +329,8 @@ function getOS() {
         const r2 = document.querySelectorAll(".second");
         for (let x of r2) {
             x.style.display = "inline-block";
-            await wait(Math.floor(Math.random() * (200 - 50 + 1)) + 50);
+            x.scrollIntoView({ behavior: "smooth", block: "start" });
+            await wait(Math.floor(Math.random() * (100 - 50 + 1)) + 50);
         }
         await wait(2000);
         finalMessages();
@@ -184,14 +339,17 @@ function getOS() {
     async function finalMessages() {
 
         const r3 = document.querySelectorAll(".third");
-        document.getElementById("skibidi").setAttribute("class", "verb second");
+        document.getElementById("finn").setAttribute("class", "verb second");
         for (let y of r3) {
             y.style.display = "inline-block";
-            await wait(Math.floor(Math.random() * (2000 - 750 + 1)) + 750);
+            y.scrollIntoView({ behavior: "smooth", block: "start" });
+            await wait(Math.floor(Math.random() * (750 - 300 + 1)) + 300);
         }
         window.addEventListener("keydown",function() {
-            window.open("desktop.html");
-            window.location = "https://google.com";
+            const newT = window.open("desktop.html");
+            if (newT) {
+                window.location = "https://google.com";
+            }
         });
         
     }
