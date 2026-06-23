@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <title>Desktop</title>
+    <title id="Desktop">Desktop</title>
     <link rel="icon" type="image/x-icon" href="images/icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="CSS/desktop.css">
 </head>
 <body>
+    <div id="main">
     <div id="off"></div>
     <div id="toolbar">
         <div id="abt" class="menu-button">About</div>
@@ -15,32 +16,72 @@
     </div>
 
     <div id="kill">
-        <img src="images/power.png"> <p id="time">Shutting Down in 3 Seconds...</p>
+        <img src="images/power.png"> <p id="time">Shutting Down in 5 Seconds. Press Any Key to Cancel.</p>
     </div>
-
+    </div>
 </body>
 <script>
-
+    let shutting = false;
     document.addEventListener("DOMContentLoaded", function () {
-
-        document.getElementById('pow').addEventListener("click", () => {
+        document.getElementById('pow').addEventListener("click",power)
+        function power() {
             document.getElementById("kill").style.display = "flex";
+            shutting = true;
+            window.addEventListener("keydown", function() {
+                document.getElementById("time").textContent = "Shutting Down in 5 Seconds. Press Any Key to Cancel.";
+                document.getElementById("kill").style.display = "none";
+                document.getElementById("off").style.pointerEvents = "none";
+                document.getElementById("off").style.opacity = "0";
+                shutting = false;
+                document.getElementById("pow").style.cursor = "not-allowed";
+                document.getElementById("pow").removeEventListener("click",power);
+                setTimeout(function(){
+                    document.getElementById("pow").addEventListener("click",power);
+                    document.getElementById("pow").style.cursor = "pointer";
+                }, 5000)
+                return;
+            })
             setTimeout(function(){
-                document.getElementById("time").textContent = "Shutting Down in 2 Seconds...";
+                if (shutting){
+                document.getElementById("time").textContent = "Shutting Down in 4 Seconds. Press Any Key to Cancel.";
+                }
             }, 1000);
             setTimeout(function(){
-                document.getElementById("time").textContent = "Shutting Down in 1 Seconds...";
-                document.getElementById("off").style.pointerEvents = "all";
-                document.getElementById("off").style.opacity = "1";
+                if (shutting){
+                document.getElementById("time").textContent = "Shutting Down in 3 Seconds. Press Any Key to Cancel.";
+                }
             }, 2000);
             setTimeout(function(){
+                if (shutting){
+                document.getElementById("time").textContent = "Shutting Down in 2 Seconds. Press Any Key to Cancel.";
+                }
+            }, 3000);
+            setTimeout(function(){
+                if (shutting){
+                document.getElementById("time").textContent = "Shutting Down in 1 Seconds. Press Any Key to Cancel.";
+                }
+            }, 4000);
+            setTimeout(function(){
+                if (shutting){
+                document.getElementById("off").style.pointerEvents = "all";
+                document.getElementById("off").style.opacity = "1";
+                }
+            }, 4500);
+            setTimeout(function(){
+                if (shutting){
                 window.close();
-            }, 3500);
-        });
-
+                }
+            }, 5000);
+        };
+        let abtOpen = false;
         const abtton = document.getElementById('abt');
-        abtton.addEventListener('click', () => open('384','504','Apps/about.html','about'));
 
+        abtton.addEventListener('click', () => {
+            if (!abtOpen){
+                open('384','504','Apps/about.html','about');
+                abtOpen = true;
+            }});
+        
         function dragibus(w,i,g) {
         /* dragging (w3Schools and Gemini) */
     var e = w;
@@ -61,7 +102,7 @@
             x.style.pointerEvents = "none";
         });
         grabBar.style.cursor = "grabbing";
-        e.style.zIndex = "9998";
+        e.style.zIndex = "1";
         document.addEventListener('mouseup', closeDrag);
         document.addEventListener('mousemove', drage);
     }
@@ -83,7 +124,7 @@
 
         interactive.style.pointerEvents = "auto";
         grabBar.style.cursor = "grab";
-        e.style.zIndex = "auto";
+        e.style.zIndex = "0";
         document.removeEventListener('mouseup', closeDrag);
         document.removeEventListener('mousemove', drage);
     }
@@ -124,6 +165,7 @@
 
     function quit(w) {
         w.remove();
+        abtOpen = false;
     }
 
 });
