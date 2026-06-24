@@ -5,11 +5,28 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/desktop.css">
 </head>
 <body>
+
+
+
+    <div id="off">
+
+        <div id="login">
+            <h3 id="clock"></h3>
+            <form id="pH" onsubmit="checkPH(this.querySelector('input').value);return false;">
+                <img src="../OS/images/user.png">
+                <p>Admin User</p>
+                <input id="pass" type="password" placeholder="Hint: it's 123">
+            </form>
+        </div>
+
+    </div>
     <div id="main">
-    <div id="off"></div>
     <div id="toolbar">
         <div id="abt" class="menu-button">About</div>
         <div class="menu-button" id="pow">Power</div>
@@ -21,6 +38,56 @@
     </div>
 </body>
 <script>
+
+    function checkPH(e) {
+        const inp = document.getElementById("pass")
+        inp.value = "";
+        inp.blur();
+        inp.style.cursor = "wait";
+        inp.disabled = true;
+        inp.style.backgroundColor = "rgba(133, 133, 133, 0.767)";
+        inp.style.pointerEvents = "none";
+        if (e !== "123") {
+            inp.classList.add("shake");
+            setTimeout(() => {
+                inp.classList.remove("shake");
+                inp.disabled = false;
+                inp.style.pointerEvents = "auto";
+                inp.style.cursor = "auto";
+            },600);
+        }
+        else {
+            setTimeout(() => {
+                document.getElementById("off").style.backgroundImage = "none";
+                document.getElementById("off").style.backgroundColor = "black";
+                setTimeout(() => {
+                    document.getElementById("login").remove();
+                },350)
+                setTimeout(() => {
+                    document.getElementById("off").style.opacity = "0";
+                },700)
+                setTimeout(() => {
+                    document.getElementById("main").style.display = "block";
+                },1200)
+        },600)
+        }
+    }
+
+
+
+    updateClock();
+    function updateClock() {
+        const out = document.getElementById("clock");
+        let dat = new Date();
+        out.textContent = dat.getHours() + ":" + dat.getMinutes();
+        if (dat.getMinutes() <= 9) {
+            out.textContent = dat.getHours() + ":0" + dat.getMinutes();
+        }
+        setTimeout(updateClock,1000);
+    }
+
+
+
     let shutting = false;
     document.addEventListener("DOMContentLoaded", function () {
         document.getElementById('pow').addEventListener("click",power)
