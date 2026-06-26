@@ -25,11 +25,10 @@
     background-color: rgba(255, 255, 255, 0.678);   
 }
 body {
-    background-image: url(../images/bg.jpg);
-    background-size: cover;
     margin: 0;
     min-height: 100vh;
     min-width: 100vw;
+    background: #08232d;
 }
 #toolbar {
     background-color:rgba(0, 0, 0, 0.383);
@@ -39,7 +38,8 @@ body {
     display:block;
     padding: 0.4vw;
     padding-left: 3vw;
-    z-index: 9999;
+    z-index: 4;
+    position: relative;
 }
 #pow {
     position: absolute;
@@ -61,6 +61,7 @@ iframe {
     box-shadow: 5px 5px 20px rgb(0, 0, 0);
     border-radius: 25px;
     left: 40%;
+    z-index: 3;
 }
 .close {
     margin: 0 auto;
@@ -98,7 +99,7 @@ iframe {
     border-radius: 20px;
     border: 2px solid grey;
     box-shadow: 5px 5px 5px rgb(0, 0, 0);
-    z-index: 2;
+    z-index: 4;
 }
 #kill img {
     text-align: left;
@@ -130,7 +131,7 @@ iframe {
     top: 0;
     left: 0;
     transition: opacity 0.1s ease-in-out;
-    z-index: 3;
+    z-index: 5;
     pointer-events: none;
 }
 #main {
@@ -144,8 +145,8 @@ h3 {
     color:rgba(255, 255, 255, 0.504);
     text-align: center;
     font-size: 150pt;
-    margin-top: 70px;
-    margin-bottom: 90px;
+    margin-top: 3vh;
+    margin-bottom: 7vh;
 }
 #login img {
     width: 150px;
@@ -194,4 +195,24 @@ form {
 }
 .shake {
     animation: shakeEffect 0.3s ease-in-out;
+}
+#bg {
+    width: 105vw;
+    height: 100vh;
+    position: absolute;
+    padding: 0.23%;
+    top: 3.2%;
+    justify-content: start;
+    align-content: start;
+    gap: 6px;
+    background: #08232d;
+    background: linear-gradient(135deg,rgb(8, 37, 48) 0%, rgb(18, 90, 58) 100%);
+    z-index: 2;
+}
+.dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0);
+    z-index: 3;
 }

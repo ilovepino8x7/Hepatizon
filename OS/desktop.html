@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <title id="Desktop">Desktop</title>
+    <title id="title">Login</title>
     <link rel="icon" type="image/x-icon" href="images/icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +27,7 @@
 
     </div>
     <div id="main">
+        <div id="bg"></div>
     <div id="toolbar">
         <div id="abt" class="menu-button">About</div>
         <div class="menu-button" id="pow">Power</div>
@@ -38,6 +39,121 @@
     </div>
 </body>
 <script>
+    document.addEventListener("mousedown", () => {
+        document.documentElement.requestFullscreen();
+    });
+    document.addEventListener("keypress", () => {
+        document.documentElement.requestFullscreen();
+    });
+    const grd = document.getElementById("bg");
+    const space = 20;
+    const activeDots = new Set();
+    const griDots = [];
+    let lastDots = [];
+
+    function makeGrid() {
+        grd.innerHTML = "";
+        griDots.length = 0;
+
+        const columns = Math.ceil(window.innerWidth / space) + 5;
+        const rows = Math.ceil(window.innerHeight / space) + 5;
+
+
+        for (let row = 0; row < rows; row++) {
+            griDots[row] = [];
+
+            for (let col = 0; col < columns; col++) {
+                const dot = document.createElement("div");
+                dot.classList.add("dot");
+
+                dot.style.position = "absolute";
+                dot.dataset.x = col * space;
+                dot.dataset.y = row * space;
+                dot.style.transform = `translate(${col * space}px, ${row * space}px) scale(1)`;
+                grd.appendChild(dot);
+
+                griDots[row][col] = {
+                    el: dot,
+                    x: col * space,
+                    y: row * space,
+            };
+        }
+        }
+    }
+    // ChatGPT helped a lot with this
+    function upDot(mX, mY) {
+
+// RESET ONLY PREVIOUS DOTS
+for (let i = 0; i < lastDots.length; i++) {
+    const dot = lastDots[i];
+    dot.el.style.transform = `translate(${dot.x}px, ${dot.y}px) scale(1)`;
+    dot.el.style.backgroundColor = "rgba(255,255,255,0)";
+    dot.el.style.boxShadow = "none";
+}
+
+lastDots = [];
+
+const radius = 80;
+const cellRadius = 10; 
+
+const mouseCol = Math.floor(mX / space);
+const mouseRow = Math.floor(mY / space);
+
+for (let row = mouseRow - cellRadius; row <= mouseRow + cellRadius; row++) {
+    for (let col = mouseCol - cellRadius; col <= mouseCol + cellRadius; col++) {
+
+        if (!griDots[row] || !griDots[row][col]) continue;
+
+        const dot = griDots[row][col];
+
+        const dx = mX - dot.x;
+        const dy = mY - dot.y;
+
+        const dist = Math.hypot(dx, dy);
+
+        if (dist < radius) {
+            const streng = 1 - dist / radius;
+
+            dot.el.style.transform = `translate(${dot.x}px, ${dot.y}px) scale(${1 + streng * 0.4})`;
+
+            dot.el.style.backgroundColor = `rgba(100,200,255,${streng})`;
+
+            dot.el.style.boxShadow = `0 0 ${12 * streng}px rgba(100,200,255,0.8)`; 
+
+            lastDots.push(dot);
+        }
+    }
+}
+}
+
+    document.addEventListener("DOMContentLoaded", function() {
+        let mouseX = 0;
+let mouseY = 0;
+let pending = false;
+
+window.addEventListener("mousemove", e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    if (!pending) {
+        pending = true;
+
+        requestAnimationFrame(() => {
+            upDot(mouseX, mouseY);
+            pending = false;
+        });
+    }
+});
+    })
+    window.addEventListener("resize",makeGrid);
+    makeGrid();
+
+   
+
+
+
+
+
 
     function checkPH(e) {
         const inp = document.getElementById("pass")
@@ -62,6 +178,7 @@
                 document.getElementById("off").style.backgroundColor = "black";
                 setTimeout(() => {
                     document.getElementById("login").remove();
+                    document.getElementById("title").innerHTML = "Desktop"
                 },350)
                 setTimeout(() => {
                     document.getElementById("off").style.opacity = "0";
@@ -169,7 +286,6 @@
             x.style.pointerEvents = "none";
         });
         grabBar.style.cursor = "grabbing";
-        e.style.zIndex = "1";
         document.addEventListener('mouseup', closeDrag);
         document.addEventListener('mousemove', drage);
     }
@@ -191,7 +307,6 @@
 
         interactive.style.pointerEvents = "auto";
         grabBar.style.cursor = "grab";
-        e.style.zIndex = "0";
         document.removeEventListener('mouseup', closeDrag);
         document.removeEventListener('mousemove', drage);
     }
