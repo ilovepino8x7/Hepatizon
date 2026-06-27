@@ -17,34 +17,106 @@
     padding: 0 20px;  
     cursor:pointer; 
     transition: 0.2s;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding-top: 2px;
 }
 .menu-button:hover {
-    background-color: rgba(255, 255, 255, 0.351);   
+    background-color: rgba(255, 255, 255, 0.165);   
 }
 .menu-button:active {
-    background-color: rgba(255, 255, 255, 0.678);   
+    background-color: rgba(255, 255, 255, 0.305);   
 }
 body {
     margin: 0;
     min-height: 100vh;
     min-width: 100vw;
     background: #08232d;
+    background: linear-gradient(135deg,rgb(8, 37, 48) 0%, rgb(18, 90, 58) 100%);
 }
 #toolbar {
-    background-color:rgba(0, 0, 0, 0.383);
+    background: #0c35453e;
+    background: linear-gradient(120deg, rgba(12, 53, 69, 0.1) 0%, rgba(47, 5, 77, 0.1) 100%);
     color: white;
     margin: 0;
     width: 96.55vw;
-    display:block;
-    padding: 0.4vw;
+    height: 2.4vh;
+    display:flex;
+    justify-content: center;
+    padding-right: 0.4vw;
     padding-left: 3vw;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
     z-index: 4;
     position: relative;
+    align-content: center;
+}
+#toolbar img {
+    clip-path:circle(49% at center);
+    aspect-ratio: 1/1;
+    width: 20%;
+    object-fit: cover;
+    margin-right: 5%;
+    margin-left: 0;
+}
+#abt {
+    background-image: url('../images/about.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 15%;
+}
+#toolbar input {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: normal;
+    background-color: rgba(255, 255, 255, 0.164);
+    border-radius: 20px;
+    outline: none;
+    border: 1px rgba(99, 99, 99, 0.327) solid;
+    color: rgba(255, 255, 255, 0.733);
+    padding-right: 50px;
+    padding-left: 50px;
+    background-image: url('../images/search.png');
+    background-position: 0.7% center;
+    background-size: 1.7%;
+    background-repeat: no-repeat;
+    width: 100%;
+    cursor: auto;
+}
+#toolbar ::placeholder {
+    color: rgba(255, 255, 255, 0.575);
+    font-size: 4%;
+    font-weight: 100;
+}
+#toolbar ::placeholder {
+    font-style:italic;
+}
+#toolbar input:hover {
+    cursor:pointer;
+}
+#toolbar input:active {
+    cursor:auto;
+}
+#toolbar input:focus {
+    cursor:auto;
+}
+#searchIcon {
+    clip-path:none;
+    margin: 0;
 }
 #pow {
     position: absolute;
     right: 3vw;
     margin: 0;
+    background-image: url('../images/miniP.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 15%;
 }
 iframe {
     border: none;
@@ -61,7 +133,7 @@ iframe {
     box-shadow: 5px 5px 20px rgb(0, 0, 0);
     border-radius: 25px;
     left: 40%;
-    z-index: 3;
+    z-index: 4;
 }
 .close {
     margin: 0 auto;
@@ -99,7 +171,7 @@ iframe {
     border-radius: 20px;
     border: 2px solid grey;
     box-shadow: 5px 5px 5px rgb(0, 0, 0);
-    z-index: 4;
+    z-index: 5;
 }
 #kill img {
     text-align: left;
@@ -108,6 +180,9 @@ iframe {
     width: 90px;
     display: inline;
     margin-left: -1%;
+}
+#srcContain:focus-within {
+    background-color: rgba(0,0,0,0);
 }
 #kill p {
     display: inline;
@@ -131,7 +206,7 @@ iframe {
     top: 0;
     left: 0;
     transition: opacity 0.1s ease-in-out;
-    z-index: 5;
+    z-index: 6;
     pointer-events: none;
 }
 #main {
@@ -163,13 +238,13 @@ h3 {
     margin: 30px;
     margin-bottom: 40px;
 }
-::placeholder {
+#login ::placeholder {
     font-family: "Inter";
     font-style: italic;
     text-align: center;
     color: rgba(255, 255, 255, 0.479);
 }
-input {
+#login input {
     background-color: rgba(255, 255, 255, 0.504);
     border: 2px rgba(0, 0, 0, 0.168) solid;
     border-radius: 20px;
@@ -182,10 +257,10 @@ input {
     transition: all 0.2s;
 }
 
-input:hover {
+#login input:hover {
     background-color: rgba(209, 205, 205, 0.364);
 }
-input:focus {
+#login input:focus {
     background-color: rgba(255, 255, 255, 0.715);
     border-color:rgba(0, 0, 0, 0.57);
 }
@@ -205,9 +280,8 @@ form {
     justify-content: start;
     align-content: start;
     gap: 6px;
-    background: #08232d;
-    background: linear-gradient(135deg,rgb(8, 37, 48) 0%, rgb(18, 90, 58) 100%);
     z-index: 2;
+    cursor: none;
 }
 .dot {
     width: 7px;
@@ -216,3 +290,37 @@ form {
     background-color: rgba(255, 255, 255, 0);
     z-index: 3;
 }
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+#toolbar input {
+    border: 1px solid transparent;
+    border-radius: 20px;
+    transition: .2s;
+}
+
+#toolbar input:hover {
+    background:
+        linear-gradient(#365757, #365757) padding-box,
+        conic-gradient(
+            from var(--angle),
+            red, yellow, lime, aqua, blue, magenta, red
+        ) border-box;
+
+    animation: rotate 0.5s linear infinite;
+}
+
+@keyframes rotate {
+    to {
+        --angle: 360deg;
+    }
+}
+#toolbar input:focus {
+    background: none;
+    animation: none;
+    background-color: rgba(255, 255, 255, 0.164);
+}
+  
